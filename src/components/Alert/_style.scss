@@ -1,0 +1,44 @@
+.alert {
+  position: relative;
+  padding: $alert-padding-y $alert-padding-x;
+  margin-bottom: $alert-margin-bottom;
+  border-radius: $alert-border-radius;
+  border-width: $alert-border-width;
+  color: $white;
+}
+
+.alert-title {
+  font-weight: $alert-title-font-weight;
+  margin-bottom: $alert-title-bottom-margin;
+}
+
+.alert-discription {
+  font-size: $alert-description-font-size;
+}
+
+.alert-success {
+  background: $success;
+}
+
+.alert-default {
+  background: $blue;
+}
+
+.alert-danger {
+  background: $danger;
+}
+
+.alert-warning {
+  background: $warning;
+}
+
+.alert-close-button {
+  position: absolute;
+  z-index: 99;
+  right: 0;
+  top: 0;
+  margin: 0.3rem 1rem 0;
+  font-weight: 500;
+  font-size: 1.3rem;
+  cursor: pointer;
+}

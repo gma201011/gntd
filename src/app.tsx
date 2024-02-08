@@ -1,35 +1,14 @@
 import React from "react";
-import Button, { ButtonType, ButtonSize } from "./components/Button/button";
+import Alert, { AlertType } from "./components/Alert/alert";
 
 const App = () => {
   return (
     <>
       <div style={{ margin: "20px" }}>
-        <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>
-          Large
-        </Button>
-        <Button>Normal</Button>
-        <Button btnType={ButtonType.Danger} size={ButtonSize.Small}>
-          Small
-        </Button>
-        <Button btnType={ButtonType.Default} size={ButtonSize.Small} disabled>
-          disabled
-        </Button>
-        <Button
-          btnType={ButtonType.Link}
-          href="https://www.google.com"
-          size={ButtonSize.Large}
-        >
-          Google
-        </Button>
-        <Button
-          btnType={ButtonType.Link}
-          href="www.google.com"
-          size={ButtonSize.Small}
-          disabled
-        >
-          Disabled Google
-        </Button>
+        <Alert title="This is success alert title" discription="Success discription, this is a discription. " alertType={AlertType.Success} />
+        <Alert discription="Only discription test"  alertType={AlertType.Danger} />
+        <Alert title="This is warning alert title" discription="Warning discription"  alertType={AlertType.Warning} />
+        <Alert title="This is default alert title" discription="Default discription" alertType={AlertType.Default} />
       </div>
     </>
   );
