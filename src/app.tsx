@@ -1,14 +1,34 @@
 import React from "react";
-import Alert, { AlertType } from "./components/Alert/alert";
+import Menu, { MenuProps } from "./components/Menu/menu";
+import MenuItem, { MenuItemProps } from "./components/Menu/menuItem";
+import SubMenu, { SubMenuProps } from "./components/Menu/subMenu";
 
-const App = () => {
+const App = (props: any) => {
   return (
     <>
       <div style={{ margin: "20px" }}>
-        <Alert title="This is success alert title" discription="Success discription, this is a discription. " alertType={AlertType.Success} />
-        <Alert discription="Only discription test"  alertType={AlertType.Danger} />
-        <Alert title="This is warning alert title" discription="Warning discription"  alertType={AlertType.Warning} />
-        <Alert title="This is default alert title" discription="Default discription" alertType={AlertType.Default} />
+        <Menu onSelect={(index) => console.log("index", index)} mode="vertical" defaultOpenSubMenus={['2']}>
+        {/* <Menu onSelect={(index) => console.log("index", index)} mode="vertical"> */}
+        {/* <Menu onSelect={(index) => console.log("index", index)}> */}
+          <MenuItem>Menu1</MenuItem>
+          <MenuItem>
+            <a target="_blank" href="https://www.google.com">
+              Google Link
+            </a>
+          </MenuItem>
+          <SubMenu title="dropdown">
+            <MenuItem>Menu1</MenuItem>
+            <MenuItem>
+              <a target="_blank" href="https://www.google.com">
+                Google Link
+              </a>
+            </MenuItem>
+            <MenuItem>Menu3</MenuItem>
+            <MenuItem disabled>Menu4</MenuItem>
+          </SubMenu>
+          <MenuItem>Menu3</MenuItem>
+          <MenuItem disabled>Menu4</MenuItem>
+        </Menu>
       </div>
     </>
   );
