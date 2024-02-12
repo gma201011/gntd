@@ -1,0 +1,27 @@
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  text-decoration: none;
+  padding-left: 0;
+  list-style: none;
+  border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+
+  .tab-item {
+    display: block;
+    padding: $nav-link-padding-y $nav-link-padding-x;
+    cursor: pointer;
+
+    &.is-disabled {
+      color: $menu-item-disabled-color;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    &.is-active,
+    &:hover {
+      border-bottom: $menu-item-active-border-width solid
+        $nav-tabs-link-hover-color;
+      color: $nav-tabs-link-hover-color;
+    }
+  }
+}

@@ -17,10 +17,10 @@
       cursor: default;
     }
     &.is-active,
-    &:hover{
+    &:hover {
       color: $menu-item-active-color;
       border-bottom: $menu-item-active-border-width solid
-        $menu-item-active-color;
+        $nav-tabs-link-hover-color;
     }
     & > a:hover {
       text-decoration: none;

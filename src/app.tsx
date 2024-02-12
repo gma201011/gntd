@@ -1,15 +1,17 @@
 import React from "react";
-import Menu, { MenuProps } from "./components/Menu/menu";
-import MenuItem, { MenuItemProps } from "./components/Menu/menuItem";
-import SubMenu, { SubMenuProps } from "./components/Menu/subMenu";
+import Tabs from "./components/Tab/Tabs";
+import TabItem from "./components/Tab/TabItem";
 
 const App = (props: any) => {
   return (
     <>
       <div style={{ margin: "20px" }}>
-        <Menu onSelect={(index) => console.log("index", index)} mode="vertical" defaultOpenSubMenus={['2']}>
-        {/* <Menu onSelect={(index) => console.log("index", index)} mode="vertical"> */}
-        {/* <Menu onSelect={(index) => console.log("index", index)}> */}
+        <Tabs type="box" defaultIndex={0} onSelect={(index) => console.log(index)}>
+          <TabItem label="label A">This is card one</TabItem>
+          <TabItem label="label B">This is card two</TabItem>
+          <TabItem label="label C" disabled>The content is disabled</TabItem>
+        </Tabs>
+        {/* <Menu onSelect={(index) => console.log("index", index)} mode="vertical" defaultOpenSubMenus={['2']}>
           <MenuItem>Menu1</MenuItem>
           <MenuItem>
             <a target="_blank" href="https://www.google.com">
@@ -28,7 +30,7 @@ const App = (props: any) => {
           </SubMenu>
           <MenuItem>Menu3</MenuItem>
           <MenuItem disabled>Menu4</MenuItem>
-        </Menu>
+        </Menu> */}
       </div>
     </>
   );
