@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import classNames from "classnames";
+import Icon from "../Icon/icon";
 
 export enum AlertType {
   Success = "success",
@@ -33,7 +34,7 @@ const Alert: React.FC<alertProps> = (props) => {
       {title && <div className="alert-title">{title}</div>}
       <div className="alert-discription">{discription}</div>
       <div className="alert-close-button" onClick={() => setAlertShow(false)}>
-        x
+        <Icon icon="xmark" />
       </div>
     </div>
   ) : (
