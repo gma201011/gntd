@@ -1,25 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Alert, { AlertType } from "./components/Alert/alert";
+import Input from "./components/Input/input";
 
 const App = (props: any) => {
+  const [value, setValue] = useState("");
+  const ControlledInput = () => {
+
+  }
   return (
     <div style={{ margin: "30px" }}>
-      <Alert
-        title="This is success alert title"
-        discription="Success discription, this is a discription. "
-        alertType={AlertType.Success}
-      />
-      <Alert discription="Only discription test" alertType={AlertType.Danger} />
-      <Alert
-        title="This is warning alert title"
-        discription="Warning discription"
-        alertType={AlertType.Warning}
-      />
-      <Alert
-        title="This is default alert title"
-        discription="Default discription"
-        alertType={AlertType.Default}
-      />
+      <Input value={value} onChange={(e) => {setValue(e.target.value)}}></Input>
+      <Input style={{ width: "300px" }} />
+      <Input size='lg' style={{ width: "300px" }} defaultValue={"defaultValue"} prepend={"https://"} />
+      <Input size='sm' style={{ width: "300px" }} append={".com"} />
+      <Input disabled style={{ width: "300px" }} defaultValue={"disabled"} />
     </div>
   );
 };
