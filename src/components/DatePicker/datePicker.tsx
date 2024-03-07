@@ -1,18 +1,5 @@
 import React, { useState } from "react";
 import Icon from "../Icon/icon";
-
-export enum ButtonSize {
-  Large = "lg",
-  Small = "sm",
-}
-
-export enum ButtonType {
-  Primary = "primary",
-  Default = "default",
-  Danger = "danger",
-  Link = "link",
-}
-
 interface DatePickerProps {
   value?: Date,
   onChange?: (date: Date) => void,

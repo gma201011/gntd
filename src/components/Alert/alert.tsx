@@ -13,14 +13,14 @@ interface BaseAlertProps {
   className?: string;
   alertType?: AlertType;
   title?: string;
-  discription?: string;
+  description?: string;
   onShow?: boolean;
 }
 
 type alertProps = BaseAlertProps & React.HTMLAttributes<HTMLElement>;
 
-const Alert: React.FC<alertProps> = (props) => {
-  const { className, alertType, title, discription, onShow, ...restProps } =
+export const Alert: React.FC<alertProps> = (props) => {
+  const { className, alertType, title, description, onShow, ...restProps } =
     props;
 
   const [alertShow, setAlertShow] = useState(onShow);
@@ -32,7 +32,7 @@ const Alert: React.FC<alertProps> = (props) => {
   return alertShow ? (
     <div className={classes} {...restProps}>
       {title && <div className="alert-title">{title}</div>}
-      <div className="alert-discription">{discription}</div>
+      <div className="alert-description">{description}</div>
       <div className="alert-close-button" onClick={() => setAlertShow(false)}>
         <Icon icon="xmark" />
       </div>
