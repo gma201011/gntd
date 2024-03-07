@@ -1,43 +1,36 @@
 import React from "react";
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Alert, { AlertType } from './alert';
+import DatePicker from './datePicker';
 
-const alertMeta: Meta<typeof Alert> = {
-  title: 'Alert',
-  component: Alert,
+const datePickerMeta: Meta<typeof DatePicker> = {
+  title: 'Date Picker',
+  component: DatePicker,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
 };
 
-export default alertMeta;
-type Story = StoryObj<typeof Alert>;
+export default datePickerMeta;
+type Story = StoryObj<typeof DatePicker>;
 
 export const Default: Story = (args: any) => {
   return (
-    <div style={{ width: "80vw" }}>
-      <Alert {...args} title="This is an Alert with title." onShow></Alert>
-      <Alert {...args} description="This is an Alert with description." onShow></Alert>
-    </div>
-
+    <DatePicker {...args} />
   )
 }
 
 Default.storyName = "Default";
 
-
-export const Type: Story = () => {
+export const Operation: Story = (args: any) => {
   return (
-    <div style={{ width: "80vw" }}>
-      <Alert title="Example 1" description="This is an success Alert." alertType={AlertType.Success} onShow></Alert>
-      <Alert title="Example 2" description="This is an danger Alert." alertType={AlertType.Danger} onShow></Alert>
-      <Alert title="Example 3" description="This is an warning Alert." alertType={AlertType.Warning} onShow></Alert>
-    </div>
+    <DatePicker {...args} value={new Date("2000-1-1")} onChange={(date: Date) => alert(date.toLocaleDateString())} />
   )
 }
 
-Type.storyName = "With Types";
+Operation.storyName = "With specific date";
+
+
 
 

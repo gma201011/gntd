@@ -5,7 +5,7 @@ interface DatePickerProps {
   onChange?: (date: Date) => void,
 }
 
-const DatePicker: React.FC<DatePickerProps> = (props) => {
+export const DatePicker: React.FC<DatePickerProps> = (props) => {
   const { value = new Date(), onChange } = props;
   const [date, setDate] = useState(value);
 
@@ -39,12 +39,12 @@ const DatePicker: React.FC<DatePickerProps> = (props) => {
 
     const monthDate = [];
 
-    for (let i = 0; i < currentMonthDate; i++) {
-      const clickHandler = onChange?.bind(null, new Date(date.getFullYear(), date.getMonth(), i + 1));
+    for (let i = 1; i < currentMonthDate; i++) {
+      const clickHandler = onChange?.bind(null, new Date(date.getFullYear(), date.getMonth(), i));
       if (i === date.getDate()) {
-        monthDate.push(<div key={`date-${i + 1}`} className="day selected" onClick={clickHandler}>{i + 1}</div>);
+        monthDate.push(<div key={`date-${i + 1}`} className="day selected" onClick={clickHandler}>{i}</div>);
       } else {
-        monthDate.push(<div key={`date-${i + 1}`} className="day" onClick={clickHandler}>{i + 1}</div>);
+        monthDate.push(<div key={`date-${i + 1}`} className="day" onClick={clickHandler}>{i}</div>);
       }
     }
 
@@ -78,7 +78,6 @@ const DatePicker: React.FC<DatePickerProps> = (props) => {
         <div className="day">五</div>
         <div className="day">六</div>
         {renderDate()}
-
       </div>
     </div>
   );
