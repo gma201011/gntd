@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Icon from './icon';
 import Button, { ButtonSize, ButtonType } from "../Button/button";
 
-const iconPickerMeta: Meta<typeof Icon> = {
+const iconMeta: Meta<typeof Icon> = {
   title: 'Icon',
   component: Icon,
   parameters: {
@@ -13,8 +13,8 @@ const iconPickerMeta: Meta<typeof Icon> = {
   tags: ['autodocs'],
 };
 
-export default iconPickerMeta;
-type Story = StoryObj<typeof Icon>;
+export default iconMeta;
+type Story = StoryObj<typeof Icon>
 
 export const Default: Story = (args: any) => {
   return (
@@ -26,7 +26,7 @@ export const Default: Story = (args: any) => {
       <Icon icon="trash" theme="info" size="2x" />
       <Icon icon="anchor" theme="warning" size="2x" />
       <Button size={ButtonSize.Large} btnType={ButtonType.Link} href="https://fontawesome.com/icons/" target="_blank">
-        <Icon icon="arrow-up-right-from-square" /> For more icon 
+        <Icon icon="arrow-up-right-from-square" /> For more icon
       </Button>
     </div>
   )
