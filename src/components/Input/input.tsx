@@ -19,7 +19,7 @@ const fixControlledValue = (value: any) => {
   return typeof value == undefined ? "" : value;
 }
 
-const Input: React.FC<InputProps> = (props) => {
+export const Input: React.FC<InputProps> = (props) => {
   const { className, size, disabled, icon, prepend, append, style, ...restProps } = props;
 
   // btn, btn-lg, btn-primary
