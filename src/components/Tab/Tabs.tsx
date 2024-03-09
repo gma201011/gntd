@@ -7,7 +7,7 @@ interface ITabsContext {
   index: number;
   onSelect?: selctedCallback;
   children?: React.ReactNode;
-  type?: string
+  // type?: string
 }
 
 interface TabsProps {
@@ -16,13 +16,13 @@ interface TabsProps {
   defaultIndex: number;
   onSelect?: selctedCallback;
   disabled?: boolean;
-  type?: string;
+  // type?: string;
 }
 
-export const TabsContext = createContext<ITabsContext>({ index: 0, type: "line" });
+export const TabsContext = createContext<ITabsContext>({ index: 0 });
 
-const Tabs: React.FC<TabsProps> = (props) => {
-  const { className, children, defaultIndex, onSelect, type } = props;
+export const Tabs: React.FC<TabsProps> = (props) => {
+  const { className, children, defaultIndex, onSelect } = props;
   const [currentActive, setCurrentActive] = useState(defaultIndex);
 
   const classes = classNames("tabs", className);
@@ -64,7 +64,7 @@ const Tabs: React.FC<TabsProps> = (props) => {
   const passedContext: ITabsContext = {
     index: currentActive || 0,
     onSelect: handleTabClick,
-    type: type
+    // type: type
   };
 
   return (
@@ -77,7 +77,7 @@ const Tabs: React.FC<TabsProps> = (props) => {
 
 Tabs.defaultProps = {
   defaultIndex: 0,
-  type: "line",
+  // type: "line",
 };
 
 export default Tabs;
