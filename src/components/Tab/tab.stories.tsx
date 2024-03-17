@@ -2,7 +2,7 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Tabs from "./tabs";
-import TabItem from "./tabItem";
+import TabItem from "./TabItem";
 
 const tabMeta: Meta<typeof Tabs> = {
   title: "Tab",

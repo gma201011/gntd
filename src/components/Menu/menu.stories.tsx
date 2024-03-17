@@ -32,7 +32,7 @@ export const Default: Story = (args: any) => {
       <SubMenu title="dropdown">
         <MenuItem>Menu1</MenuItem>
         <MenuItem>
-          <a target="_blank" href="https://www.google.com">
+          <a target="_blank" rel="noreferrer" href="https://www.google.com">
             Google Link
           </a>
         </MenuItem>

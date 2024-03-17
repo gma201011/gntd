@@ -17,7 +17,7 @@ type Story = StoryObj<typeof Alert>;
 
 export const Default: Story = (args: any) => {
   return (
-    <div style={{ width: "80vw" }}>
+    <div style={{ width: "60vw" }}>
       <Alert {...args} title="This is an Alert with title." onShow></Alert>
       <Alert {...args} description="This is an Alert with description." onShow></Alert>
     </div>
@@ -30,7 +30,7 @@ Default.storyName = "Default";
 
 export const Type: Story = () => {
   return (
-    <div style={{ width: "80vw" }}>
+    <div style={{ width: "60vw" }}>
       <Alert title="Example 1" description="This is an success Alert." alertType={AlertType.Success} onShow></Alert>
       <Alert title="Example 2" description="This is an danger Alert." alertType={AlertType.Danger} onShow></Alert>
       <Alert title="Example 3" description="This is an warning Alert." alertType={AlertType.Warning} onShow></Alert>
