@@ -1,7 +1,8 @@
-import React, { ChangeEvent, useState, useEffect } from "react";
+import React, { ChangeEvent, useState, useEffect, useRef } from "react";
 import Input, { InputProps } from "../Input/input";
 import Icon from "../Icon/icon";
 import useDebounce from "../../hooks/useDebounce";
+import useClickOutside from "../../hooks/useClickOutside";
 import classNames from "classnames";
 
 interface DataSourceObject {
@@ -26,10 +27,15 @@ export const AutoComplete: React.FC<AutoCompleteProps> = (props) => {
   const [loading, setLoading] = useState(false);
   const [highlightIndex, setHighlightIndex] = useState(-1);
 
+  const triggerSearch = useRef(false);
+  const componentRef = useRef<HTMLDivElement>(null);
+
   const debouncedValue = useDebounce(inputValue, 500);
 
+  useClickOutside(componentRef, () => {setSuggestions([])});
+
   useEffect(() => {
-    if (debouncedValue) {
+    if (debouncedValue && triggerSearch.current) {
       const results = fetchSuggestions(debouncedValue);
       if (results instanceof Promise) {
         setLoading(true);
@@ -48,6 +54,7 @@ export const AutoComplete: React.FC<AutoCompleteProps> = (props) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim();
     setInputValue(value);
+    triggerSearch.current = true;
   };
 
   const handleSelect = (item: DataSourceType) => {
@@ -56,6 +63,7 @@ export const AutoComplete: React.FC<AutoCompleteProps> = (props) => {
     if (onSelect) {
       onSelect(item);
     }
+    triggerSearch.current = false;
   };
 
   const renderTemplate = (item: DataSourceType) => {
@@ -87,7 +95,6 @@ export const AutoComplete: React.FC<AutoCompleteProps> = (props) => {
     setHighlightIndex(index);
   };
   const handleKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    console.log(e.key)
     switch (e.key) {
       case "Enter":
         if (suggestions[highlightIndex]) {
@@ -109,7 +116,7 @@ export const AutoComplete: React.FC<AutoCompleteProps> = (props) => {
   };
 
   return (
-    <div className="auto-complete">
+    <div className="auto-complete" ref={componentRef}>
       <Input
         value={inputValue}
         onChange={handleChange}

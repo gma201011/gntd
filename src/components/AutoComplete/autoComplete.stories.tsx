@@ -73,8 +73,8 @@ export const Default: Story = (args: any) => {
     const itemWithNumber = item as DataSourceType<NewNameListProps>;
     return (
       <>
-        <h4>Name: {itemWithNumber.login}</h4>
-        <h4>Number: {itemWithNumber.url}</h4>
+        <ul>Name: {itemWithNumber.login}</ul>
+        {/* <h4>Number: {itemWithNumber.url}</h4> */}
       </>
     );
   };
